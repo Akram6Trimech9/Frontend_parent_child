@@ -1,0 +1,15 @@
+:host {
+  display: block;
+}
+
+.flex{
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+}
+.icon   {
+font-size: 5px;
+border: 5px solid rgb(0, 0, 0);
+padding: 1%;
+}

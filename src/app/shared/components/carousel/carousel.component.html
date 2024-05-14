@@ -1,0 +1,12 @@
+<owl-carousel-o [options]="customOptions">
+
+    @for (user of parents; track user.id) {
+ <ng-template carouselSlide >
+  <app-parent-card  [parent]="user" />
+  </ng-template>
+} @empty {
+  Empty list of users
+}
+
+
+</owl-carousel-o>

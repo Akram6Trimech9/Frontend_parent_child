@@ -1,0 +1,8 @@
+<div class="card nes-container is-rounded" style="width: 15rem; height: 20rem;">
+  <img   width="90px" [src]="parent.image">
+  <div class="card-body">
+    <h5 class="card-title">{{parent.userName}}</h5>
+    <p class="card-text">{{parent.firstName}} {{parent.lastName}}</p>
+     <a (click)="moveToProfile(parent)" class="nes-btn is-primary">update</a>
+  </div>
+</div>

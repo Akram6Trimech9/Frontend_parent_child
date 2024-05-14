@@ -1,0 +1,15 @@
+:host {
+  display: block;
+}
+.custom-container{
+  display: flex;
+  justify-content: space-between;
+  padding: 5%;
+  align-items: center;
+}
+
+
+.custom-btn{
+  border:  5px solid black;
+  cursor: pointer;
+ }

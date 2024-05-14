@@ -1,0 +1,44 @@
+.tabs {
+  display: flex;
+}
+
+.tabs a {
+  text-decoration: none;
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tabs a:hover {
+  background-color: #f0f0f0;
+}
+
+.tabs a.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.tabs a.active:hover {
+  background-color: #0056b3;
+}
+
+/* Customize NES.css badge appearance */
+.nes-badge {
+  display: inline-block;
+  padding: 5px 10px;
+  border: 2px solid transparent;
+  border-radius: 5px;
+}
+
+.is-dark {
+  color: #333;
+  background-color: #ccc;
+}
+
+.is-primary {
+  color: #fff;
+  background-color: #007bff;
+}

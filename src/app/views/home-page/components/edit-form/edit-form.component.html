@@ -1,0 +1,53 @@
+<div class="nes-container is-dark" style="width: 30%"   >
+  <div class="img-text"  *ngIf="userInfo.firstName !== null">
+    <img
+      width="150px"
+      [src]="userInfo.image"
+      alt="user-pic"
+      class="rounded-circle"
+    />
+    <span>
+      <h5 class="title">{{userInfo?.userName}}</h5>
+      <p>{{userInfo?.firstName}} {{userInfo?.lastName}}</p>
+      <button type="button" class="nes-btn is-primary">Update</button>
+      <button type="button" class="nes-btn is-warning">save</button>
+    </span>
+  </div>
+</div>
+<h2 class="mt-3 mb-3">INFO</h2>
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <div class="nes-field mb-5">
+    <label for="name_field">Name</label>
+    <input type="text" id="name_field" class="nes-input" formControlName="firstName" /> <!-- Bind formControlName to corresponding form control -->
+  </div>
+  <div class="nes-field mb-5">
+    <label for="last_name_field">Last Name</label>
+    <input type="text" id="last_name_field" class="nes-input" formControlName="lastName" />
+  </div>
+  <div class="nes-field mb-5">
+    <label for="email_field">Email</label>
+    <input type="email" id="email_field" class="nes-input" formControlName="email"  />
+  </div>
+  <div class="nes-field mb-5">
+    <label for="username_field">Username</label>
+    <input type="text" id="username_field" class="nes-input" formControlName="userName"  />
+  </div>
+  <div class="nes-field mb-5">
+    <label for="dob_field">Date of Birth</label>
+    <input type="date" id="dob_field" class="nes-input" formControlName="dateOfBirth" />
+  </div>
+<div style="background-color:#212529; padding: 1rem 1.2rem 1rem 1rem;width:calc(100% + 8px)">
+    <label for="gender_field" style="color:#fff">Gender</label>
+    <div  class="nes-select is-dark">
+        <select id="gender_field" class="nes-select" formControlName="gender">
+      <option value="M">Male</option>
+      <option value="F">Female</option>
+    </select>
+    </div>
+
+  </div>
+  <div style="display: flex; justify-content: flex-end">
+    <button type="submit" class="nes-btn is-success">Update</button>
+  </div>
+</form>
+<!-- <progress class="nes-progress" [value]="progessValue" max="100"></progress> -->

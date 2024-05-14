@@ -1,0 +1,10 @@
+@import 'nes.css/css/nes.css';
+@import 'ngx-nes-css/css/styles.css';
+@import "@angular/cdk/overlay-prebuilt.css";
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+html, body {
+  font-family: 'Press Start 2P', cursive;
+    background: repeating-linear-gradient(rgba(117, 117, 117, 0), rgba(161, 158, 158, 0) 20px, #000 22px);
+
+}

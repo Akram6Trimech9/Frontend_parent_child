@@ -1,0 +1,17 @@
+
+<div class="custom-container">
+<tabs (tabChanged)="changeTab($event)"></tabs>
+<a routerLink="/" class="nes-btn "  >
+   <i class="fa fa-arrow-left" aria-hidden="true"></i>   back
+</a>
+
+</div>
+
+@if(tabName === 'profile'){
+<edit-profile></edit-profile>
+}
+@else{
+<childs></childs>
+}
+
+
