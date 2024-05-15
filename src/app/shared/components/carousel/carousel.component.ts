@@ -27,8 +27,17 @@ export class CarouselComponent {
       760: {
         items: 3
       },
+        850: {
+        items: 4
+      },
+        950: {
+        items: 3
+      },
       1000: {
-        items: 7
+        items: 4
+      },
+      1200: {
+        items: 5
       }
     },
     nav: true

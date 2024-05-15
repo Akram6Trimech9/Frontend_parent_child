@@ -15,7 +15,7 @@ import { ChildsComponent } from './components/childs/childs.component';
 
 
 @NgModule({
-  declarations: [EditFormComponent,HomeComponent,CatHeaderDialogComponent,ProfileComponent,FathersComponent,EditProfileComponent,ChildsComponent],
+  declarations: [EditFormComponent,HomeComponent,CatHeaderDialogComponent,ProfileComponent,FathersComponent,EditProfileComponent, ChildsComponent],
   imports: [
     SharedModule,
     CommonModule,

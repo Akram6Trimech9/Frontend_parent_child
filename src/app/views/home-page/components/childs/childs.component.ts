@@ -1,9 +1,13 @@
-import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ParentKidsService } from '../../../../services/parent-kids.service';
+import { UserI } from '../../../../models/user';
 
 @Component({
-    selector: 'childs',
-    templateUrl: './childs.component.html',
-    styleUrl: './childs.component.css',
- })
-export class ChildsComponent { }
+  selector: 'children',
+  templateUrl: './childs.component.html',
+  styleUrls: ['./childs.component.css'],
+})
+export class ChildsComponent  {
+
+}

@@ -1,12 +1,12 @@
-<div class="nes-container is-dark" style="width: 30%"   >
-  <div class="img-text"  *ngIf="userInfo.firstName !== null">
+<div class="nes-container is-dark" style="width: 30%"     >
+  <div class="img-text"   >
     <img
       width="150px"
       [src]="userInfo.image"
       alt="user-pic"
       class="rounded-circle"
     />
-    <span>
+    <span  *ngIf="userInfo?.userName !== '' && userInfo?.lastName ">
       <h5 class="title">{{userInfo?.userName}}</h5>
       <p>{{userInfo?.firstName}} {{userInfo?.lastName}}</p>
       <button type="button" class="nes-btn is-primary">Update</button>

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'; // Import necessary modules
 import { ParentKidsService } from '../../../../services/parent-kids.service';
 import { UserI } from '../../../../models/user';
@@ -10,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './edit-form.component.html',
   styleUrls: ['./edit-form.component.css']
 })
-export class EditFormComponent implements OnInit {
+export class EditFormComponent implements OnInit, OnDestroy {
   constructor(
     private activatedRoute: ActivatedRoute,
     private userService: ParentKidsService,
@@ -18,14 +18,15 @@ export class EditFormComponent implements OnInit {
     private toastr: ToastrService
   ) {}
 
-  param!: number;
+  param!: any;
   userInfo!: any;
   userForm!: FormGroup;
+  idFromQuery: any;
 
   ngOnInit() {
-    this.param = +this.activatedRoute.snapshot.params['id'];
+    this.userInfo = null;
     this.initForm();
-    this.getUserById();
+    this.getUser();
   }
 
   initForm() {
@@ -38,22 +39,48 @@ export class EditFormComponent implements OnInit {
       gender: ['']
     });
   }
-
-  getUserById() {
-    if (this.param) {
+getUser() {
+  this.activatedRoute.queryParamMap.subscribe((params: ParamMap) => {
+    this.idFromQuery = params.get('child');
+    if (this.idFromQuery) {
+      this.userService.getUserById(+this.idFromQuery).subscribe((res: UserI) => {
+        this.userInfo = res;
+        this.userForm.patchValue(res);
+      });
+    } else {
+       this.userInfo = null;
+      this.param = +this.activatedRoute.snapshot.params['id'];
       this.userService.getUserById(this.param).subscribe((res: UserI) => {
         this.userInfo = res;
         this.userForm.patchValue(res);
       });
     }
-  }
+  });
+}
+
 
   onSubmit() {
-    console.log(this.userForm.value);
-    this.userService.updateUser(this.param, this.userForm.value).subscribe(
-      (res)=> {
-        this.toastr.success('User Updated', 'Good Job!');
-      }
-    );
+     if (this.idFromQuery !== null) {
+      this.userService.updateUser(+this.idFromQuery, this.userForm.value).subscribe(
+        (res) => {
+          this.toastr.success('User Updated', 'Good Job!');
+          this.getUser()
+        }
+      );
+    } else {
+      this.userService.updateUser(this.param, this.userForm.value).subscribe(
+        (res) => {
+                    this.getUser()
+
+          this.toastr.success('User Updated', 'Good Job!');
+        }
+      );
+    }
+  }
+
+  ngOnDestroy() {
+    this.userInfo = {} as UserI;
+    this.idFromQuery =null
+    this.param =null
   }
 }
